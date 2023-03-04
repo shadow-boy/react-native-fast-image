@@ -3,6 +3,7 @@
 
 #import <SDWebImage/SDImageCache.h>
 #import <SDWebImage/SDWebImagePrefetcher.h>
+#import "SDCacheSizeUtils.h"
 
 @implementation FFFastImageViewManager
 
@@ -47,6 +48,13 @@ RCT_EXPORT_METHOD(clearDiskCache:(RCTPromiseResolveBlock)resolve reject:(RCTProm
     [SDImageCache.sharedImageCache clearDiskOnCompletion:^(){
         resolve(NULL);
     }];
+}
+
+RCT_EXPORT_METHOD(getDiskCacheSize:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject)
+{
+    
+    resolve(SDCacheSizeUtils.getCurrentCacheSizeFormatStr);
+    
 }
 
 @end

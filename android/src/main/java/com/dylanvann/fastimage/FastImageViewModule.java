@@ -86,4 +86,16 @@ class FastImageViewModule extends ReactContextBaseJavaModule {
         Glide.get(activity.getApplicationContext()).clearDiskCache();
         promise.resolve(null);
     }
+
+    @ReactMethod
+    public void getDiskCacheSize(Promise promise) {
+        final Activity activity = getCurrentActivity();
+        if (activity == null) {
+            promise.resolve(null);
+            return;
+        }
+       String cacheSizeStr = GlideCacheUtil.getInstance().getCacheSize(activity.getApplicationContext());
+        promise.resolve(cacheSizeStr);
+    }
+
 }
