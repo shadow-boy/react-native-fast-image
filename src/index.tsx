@@ -253,6 +253,8 @@ FastImage.clearMemoryCache = () =>
 
 FastImage.clearDiskCache = () => NativeModules.FastImageView.clearDiskCache()
 
+FastImage.getDiskCacheSize = () => NativeModules.FastImageView.getDiskCacheSize()
+
 const styles = StyleSheet.create({
     imageContainer: {
         overflow: 'hidden',
